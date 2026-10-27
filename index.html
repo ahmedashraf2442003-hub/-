@@ -54,11 +54,20 @@
 <div class="toast" id="toast"></div>
 <script>
 const WHATSAPP_NUMBER = "201121185136"; // رقم واتساب طِراز بكود مصر ومن غير +
+
 const products = [
- {id:1,name:"قميص كلاسيك بيج",price:450,color:"بيج",img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=85",tag:"الأكثر تميزًا"},
- {id:2,name:"قميص كلاسيك أبيض",price:500,color:"أبيض",img:"https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=700&q=85",tag:"أساسي"},
- {id:3,name:"قميص كلاسيك أزرق",price:550,color:"أزرق",img:"https://images.unsplash.com/photo-1620012253295-c15a3e2c5b7a?auto=format&fit=crop&w=700&q=85",tag:"جديد"}
+  {id:1,name:"قميص سادة أزرق",price:360,color:"أزرق",img:"plain-blue.png",tag:"كلاسيك"},
+  {id:2,name:"قميص سادة نبيتي",price:360,color:"نبيتي",img:"plain-burgundy.png",tag:"كلاسيك"},
+  {id:3,name:"قميص سادة أزرق فاتح",price:360,color:"أزرق فاتح",img:"plain-lightblue.png",tag:"كلاسيك"},
+  {id:4,name:"قميص سادة كحلي",price:360,color:"كحلي",img:"plain-navy.png",tag:"كلاسيك"},
+  {id:5,name:"قميص أوف وايت",price:360,color:"أوف وايت",img:"plain-offwhite.png",tag:"كلاسيك"},
+  {id:6,name:"قميص سادة أزرق باهت",price:360,color:"أزرق باهت",img:"plain-pale-blue.png",tag:"كلاسيك"},
+  {id:7,name:"قميص سادة أبيض",price:360,color:"أبيض",img:"plain-white.png",tag:"كلاسيك"},
+  {id:8,name:"قميص كاروهات - أكوا",price:650,color:"كاروهات أكوا",img:"check-aqua.png",tag:"كاروهات قطن"},
+  {id:9,name:"قميص كاروهات أزرق وبيج",price:650,color:"كاروهات أزرق وبيج",img:"check-blue-tan.png",tag:"كاروهات قطن"},
+  {id:10,name:"قميص كاروهات كحلي",price:650,color:"كاروهات كحلي",img:"check-navy.png",tag:"كاروهات قطن"}
 ];
+  
 const cart=[];
 const money=n=>new Intl.NumberFormat('ar-EG').format(n)+" ج.م";
 function renderProducts(){document.getElementById('products').innerHTML=products.map(p=>`<article class="product"><div class="photo"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"><span class="tag">${p.tag}</span></div><div class="pinfo"><h3>${p.name}</h3><p>قصة كلاسيكية • اللون: ${p.color}</p><div class="price">${money(p.price)}</div><div class="pactions"><select id="size-${p.id}" aria-label="اختار المقاس"><option value="">اختار المقاس</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select><button onclick="addToCart(${p.id})">أضف للسلة +</button></div></div></article>`).join('')}
